@@ -11,27 +11,19 @@ import java.util.List;
 @RestController
 @RequestMapping("/todos")
 public class TodosController {
+    private List<String> todos=new ArrayList<>();
 
     @GetMapping("/todos")
     public List<String> getTodos() {
-        List<String> todos= new ArrayList<>();
-        todos.add("Element1");
-        todos.add("Element2");
-        todos.add("Element3");
         return todos;
     }
-    // Create getTodos method that will receive as a input parameter an id and it will return a single string from the list index
 
     @GetMapping("/todo/{index}")
     public String getTodo(@PathVariable(value = "index") int index){
-        List<String> todos= new ArrayList<>();
-        todos.add("Element1");
-        todos.add("Element2");
-        todos.add("Element3");
         return todos.get(index);
     }
     @GetMapping("/getGreeting/{name}")
     public String getGreeting(@PathVariable(value = "name") String name) {
         return "Hello " + name;
     }
-}
+}// List at class level, add todo and a delete todo;
